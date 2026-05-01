@@ -6,10 +6,14 @@ import { connectDB } from "./lib/db.js";
 // routes
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
 app.use(express.json());
+
+// parse cookies
+app.use(cookieParser());
 
 app.get("", (req, res) => {
   res.send("Chat App API running perfectly!");
