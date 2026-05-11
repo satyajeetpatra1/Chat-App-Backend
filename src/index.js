@@ -7,10 +7,19 @@ import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
+
+// cors
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://www.satyajeetpatra.in"],
+    credentials: true,
+  }),
+);
 
 // parse cookies
 app.use(cookieParser());
