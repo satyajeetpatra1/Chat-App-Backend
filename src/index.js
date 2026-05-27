@@ -8,8 +8,7 @@ import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-
-const app = express();
+import { app, server } from "./lib/socket.js";
 
 app.use(express.json({ limit: "5mb" }));
 
@@ -33,7 +32,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 
   connectDB();
