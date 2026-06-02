@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --env-file=.env src/index",
-    "start": "node --env-file=.env src/index"
+    "start": "node --env-file-if-exists=.env src/index"
   },
   "dependencies": {
     "@arcjet/inspect": "^1.4.0",
